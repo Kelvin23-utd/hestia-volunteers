@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hestia — Volunteer Recruitment</title>
+<style>
+  :root {
+    --bg: #fafaf7;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --muted: #5a5a5a;
+    --accent: #b23a48;
+    --accent-soft: #f4e4e6;
+    --border: #e5e5e0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header {
+    padding: 32px 0 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .logo {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .logo span {
+    color: var(--accent);
+  }
+
+  .lang-toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--card);
+  }
+
+  .lang-toggle button {
+    border: none;
+    background: transparent;
+    padding: 6px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--muted);
+    transition: all 0.15s ease;
+  }
+
+  .lang-toggle button.active {
+    background: var(--ink);
+    color: white;
+  }
+
+  .hero {
+    padding: 56px 0 40px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .hero .subtitle {
+    font-size: 18px;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  .hero .tag {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  section {
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  section h2 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 16px;
+  }
+
+  section p {
+    margin-bottom: 14px;
+    color: #2a2a2a;
+  }
+
+  ul.clean {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul.clean li {
+    padding: 10px 0 10px 28px;
+    position: relative;
+    color: #2a2a2a;
+  }
+
+  ul.clean li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 20px 0;
+  }
+
+  .card-title {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .privacy-card {
+    background: var(--accent-soft);
+    border-color: #e8cfd3;
+  }
+
+  .privacy-card .card-title {
+    color: var(--accent);
+  }
+
+  table.summary {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+  }
+
+  table.summary td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  table.summary td:first-child {
+    color: var(--muted);
+    width: 40%;
+    font-size: 14px;
+  }
+
+  table.summary tr:last-child td {
+    border-bottom: none;
+  }
+
+  .cta {
+    text-align: center;
+    padding: 48px 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin: 32px 0;
+  }
+
+  .cta h2 {
+    margin-bottom: 12px;
+  }
+
+  .cta p {
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--ink);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.1s ease, background 0.2s ease;
+  }
+
+  .btn:hover {
+    background: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--border);
+    margin-left: 8px;
+  }
+
+  .btn-secondary:hover {
+    background: var(--bg);
+    color: var(--ink);
+  }
+
+  footer {
+    padding: 40px 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+
+  .lang-content { display: none; }
+  .lang-content.active { display: block; }
+
+  strong { color: var(--ink); }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 26px; }
+    .hero .subtitle { font-size: 16px; }
+    section h2 { font-size: 19px; }
+    .btn-secondary { margin-left: 0; margin-top: 8px; display: block; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-row">
+    <div class="logo">Hest<span>ia</span></div>
+    <div class="lang-toggle">
+      <button id="btn-en" onclick="setLang('en')">English</button>
+      <button id="btn-cn" class="active" onclick="setLang('cn')">中文</button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= ENGLISH ================= -->
+<div id="lang-en" class="lang-content">
+<main class="container">
+
+  <section class="hero" style="border-top: none;">
+    <span class="tag">Volunteer Recruitment · UT Dallas</span>
+    <h1>Volunteer recruitment for a home acoustic sensing study.</h1>
+    <p class="subtitle">We are looking for volunteers to host 3 microphone sensors at home for 4–12 days. The study investigates whether daily routines can be recognized from ambient household sounds. No cameras. No speech transcription.</p>
+    <a href="#signup" class="btn">I'm interested</a>
+    <a href="#details" class="btn btn-secondary">Learn more</a>
+  </section>
+
+  <section id="about">
+    <h2>About the study</h2>
+    <p>Hestia is a research project at <strong>The University of Texas at Dallas</strong> studying whether ambient household sounds (water running, kitchen activity, footsteps, doors, etc.) can be used to recognize daily routines. The intended applications include:</p>
+    <ul class="clean">
+      <li><strong>Elderly living independently</strong> — detecting missed meals, falls, or prolonged inactivity without cameras.</li>
+      <li><strong>Remote workers living alone</strong> — structuring the day, identifying skipped meals or irregular sleep.</li>
+      <li><strong>Self-reflection</strong> — a private summary of how the day is actually spent.</li>
+    </ul>
+    <p>All processing runs locally. No cameras, no cloud uploads, no speech transcription.</p>
+  </section>
+
+  <section id="details">
+    <h2>What you'd be doing</h2>
+    <ul class="clean">
+      <li>We place <strong>3 small microphone sensors</strong> in your home — one each in the bedroom, bathroom, and kitchen.</li>
+      <li>You live normally for <strong>4 to 12 days</strong> (you pick the length).</li>
+      <li>You keep a simple activity diary (~5 minutes per day) noting when you slept, ate, showered, etc.</li>
+      <li>At the end, we remove the sensors and delete anything you don't want us to keep.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Privacy and data handling</h2>
+    <div class="card privacy-card">
+      <p>The sensors record audio. For analysis, the researcher (Xiao Yan) may listen to short segments to verify sound types.</p>
+      <p style="margin-top:12px;">The recordings will not be published, shared with third parties, sold, or uploaded to any public dataset. Speech content will not be transcribed or extracted.</p>
+      <p style="margin-top:12px;">You may request deletion of your data at any time.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Who we're looking for</h2>
+    <ul class="clean">
+      <li><strong>Preferably living alone</strong> (single-resident homes simplify the data analysis).</li>
+      <li>Your home has a bedroom, bathroom, and kitchen where we can place one small sensor each.</li>
+      <li>You're comfortable keeping a brief daily diary.</li>
+      <li>You're located in the Dallas / UT Dallas area (or somewhere I can visit to set up).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>At a glance</h2>
+    <table class="summary">
+      <tr><td>Study length</td><td>4–12 consecutive days (your choice)</td></tr>
+      <tr><td>Devices in home</td><td>3 small microphone sensors (bedroom, bathroom, kitchen)</td></tr>
+      <tr><td>Daily effort</td><td>~5 minutes (activity diary)</td></tr>
+      <tr><td>What is NOT collected</td><td>No video, no Wi-Fi, no phone data, no speech transcripts</td></tr>
+      <tr><td>Who sees the data</td><td>Only me (Xiao Yan)</td></tr>
+      <tr><td>Your rights</td><td>Withdraw or request full deletion at any time</td></tr>
+    </table>
+  </section>
+
+  <section id="signup">
+    <div class="cta">
+      <h2>Interested in participating?</h2>
+      <p>Contact me and I will share the details.</p>
+      <a href="mailto:xiao.yan@utdallas.edu?subject=Hestia%20Volunteer" class="btn">Email me</a>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<!-- ================= 中文 ================= -->
+<div id="lang-cn" class="lang-content active">
+<main class="container">
+
+  <section class="hero" style="border-top: none;">
+    <span class="tag">志愿者招募 · 德州大学达拉斯分校</span>
+    <h1>家庭声学感知实验志愿者招募。</h1>
+    <p class="subtitle">我们正在招募志愿者，在家中放置 3 个麦克风传感器，持续 4–12 天。本研究探讨能否通过家中的环境声音识别日常作息。不使用摄像头，不转录语音内容。</p>
+    <a href="#signup-cn" class="btn">我有兴趣参与</a>
+    <a href="#details-cn" class="btn btn-secondary">了解更多</a>
+  </section>
+
+  <section id="about-cn">
+    <h2>关于本研究</h2>
+    <p>Hestia 是 <strong>德州大学达拉斯分校 (UT Dallas)</strong> 的一项研究项目，研究能否通过家中的环境声音（水流声、厨房活动、脚步声、开关门声等）识别日常作息。研究的应用方向包括：</p>
+    <ul class="clean">
+      <li><strong>独居老人</strong>——在不使用摄像头的前提下，识别漏餐、跌倒或长时间异常静止。</li>
+      <li><strong>独自在家的远程工作者</strong>——辅助安排作息，识别漏餐或睡眠紊乱。</li>
+      <li><strong>个人作息回顾</strong>——以保护隐私的方式了解自己一天的实际情况。</li>
+    </ul>
+    <p>所有处理均在本地完成。不使用摄像头，不上传云端，不转录语音。</p>
+  </section>
+
+  <section id="details-cn">
+    <h2>你需要做什么</h2>
+    <ul class="clean">
+      <li>我们会在你家中放置 <strong>3 个小型麦克风传感器</strong>——卧室、卫生间、厨房各一个。</li>
+      <li>你像平常一样生活 <strong>4 到 12 天</strong>（时长由你决定）。</li>
+      <li>你每天花约 5 分钟简单记录活动日志（例如何时睡觉、吃饭、洗澡等）。</li>
+      <li>实验结束后，我们会取走设备，并删除你不希望保留的任何数据。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>隐私与数据处理</h2>
+    <div class="card privacy-card">
+      <p>传感器会录制音频。为完成分析，研究者（Xiao Yan）可能会听取部分片段以确认声音类型。</p>
+      <p style="margin-top:12px;">录音不会被公开发表、分享给第三方、出售，也不会上传至任何公开数据集。不会对语音内容进行转录或提取。</p>
+      <p style="margin-top:12px;">你可以随时要求删除全部数据。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>适合哪些志愿者</h2>
+    <ul class="clean">
+      <li><strong>最好是独居</strong>（单人住所更便于数据分析）。</li>
+      <li>家中有卧室、卫生间和厨房各一个，可以各放一个小传感器。</li>
+      <li>愿意每天花几分钟记录简短的活动日志。</li>
+      <li>位于达拉斯 / UT Dallas 周边地区（或我能上门安装的位置）。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>快速概览</h2>
+    <table class="summary">
+      <tr><td>实验时长</td><td>连续 4–12 天（你来定）</td></tr>
+      <tr><td>家中设备</td><td>3 个小型麦克风传感器（卧室、卫生间、厨房）</td></tr>
+      <tr><td>每日投入</td><td>约 5 分钟（活动日志）</td></tr>
+      <tr><td>不会采集的内容</td><td>无视频、无 Wi-Fi 数据、无手机数据、无语音文字</td></tr>
+      <tr><td>谁能看到数据</td><td>仅限我本人（Xiao Yan）</td></tr>
+      <tr><td>你的权利</td><td>随时退出或要求彻底删除数据</td></tr>
+    </table>
+  </section>
+
+  <section id="signup-cn">
+    <div class="cta">
+      <h2>有兴趣参与？</h2>
+      <p>请联系我，我会把详细信息发给你。</p>
+      <a href="mailto:xiao.yan@utdallas.edu?subject=Hestia%20志愿者" class="btn">发送邮件</a>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<footer>
+  <div class="container">
+    Hestia · The University of Texas at Dallas · <span id="year"></span>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+    document.getElementById('lang-cn').classList.toggle('active', lang === 'cn');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-cn').classList.toggle('active', lang === 'cn');
+    document.documentElement.lang = lang === 'cn' ? 'zh-CN' : 'en';
+    try { localStorage.setItem('hestia-lang', lang); } catch(e) {}
+  }
+
+  // Default to Chinese; restore saved preference if any
+  (function() {
+    let saved = null;
+    try { saved = localStorage.getItem('hestia-lang'); } catch(e) {}
+    if (saved) setLang(saved);
+    document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+</script>
+
+</body>
+</html>
