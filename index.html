@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -264,20 +264,20 @@
   <div class="container header-row">
     <div class="logo">Hest<span>ia</span></div>
     <div class="lang-toggle">
-      <button id="btn-en" onclick="setLang('en')">English</button>
-      <button id="btn-cn" class="active" onclick="setLang('cn')">中文</button>
+      <button id="btn-en" class="active" onclick="setLang('en')">English</button>
+      <button id="btn-cn" onclick="setLang('cn')">中文</button>
     </div>
   </div>
 </header>
 
 <!-- ================= ENGLISH ================= -->
-<div id="lang-en" class="lang-content">
+<div id="lang-en" class="lang-content active">
 <main class="container">
 
   <section class="hero" style="border-top: none;">
     <span class="tag">Volunteer Recruitment · UT Dallas</span>
     <h1>Volunteer recruitment for a home acoustic sensing study.</h1>
-    <p class="subtitle">We are looking for volunteers to host 3 microphone sensors at home for 3–5 days. The study investigates whether daily routines can be recognized from ambient household [...]
+    <p class="subtitle">We are looking for volunteers to host 3 microphone sensors at home for 3–5 days. The study investigates whether daily routines can be recognized from ambient household [[...]
     <a href="#signup" class="btn">I'm interested</a>
     <a href="#details" class="btn btn-secondary">Learn more</a>
   </section>
@@ -346,20 +346,21 @@
 </div>
 
 <!-- ================= 中文 ================= -->
-<div id="lang-cn" class="lang-content active">
+<!--
+<div id="lang-cn" class="lang-content">
 <main class="container">
 
   <section class="hero" style="border-top: none;">
     <span class="tag">志愿者招募 · 德州大学达拉斯分校</span>
     <h1>家庭声学感知实验志愿者招募。</h1>
-    <p class="subtitle">我们正在招募志愿者，在家中放置 3 个麦克风传感器，持续 3–5 天。本研究探讨能否通过家中的环境声音识别日常作息。不使用�[...]
+    <p class="subtitle">我们正在招募志愿者，在家中放置 3 个麦克风传感器，持续 3–5 天。本研究探讨能否通过家中的环境声音识别日常作息。不使用��[...]
     <a href="#signup-cn" class="btn">我有兴趣参与</a>
     <a href="#details-cn" class="btn btn-secondary">了解更多</a>
   </section>
 
   <section id="about-cn">
     <h2>关于本研究</h2>
-    <p>Hestia 是 <strong>德州大学达拉斯分校 (UT Dallas)</strong> 的一项研究项目，研究能否通过家中的环境声音（水流声、厨房活动、脚步声、开关门声等）��[...]
+    <p>Hestia 是 <strong>德州大学达拉斯分校 (UT Dallas)</strong> 的一项研究项目，研究能否通过家中的环境声音（水流声、厨房活动、脚步声、开关门声等[...]
     <ul class="clean">
       <li><strong>独居老人</strong>——在不使用摄像头的前提下，识别漏餐、跌倒或长时间异常静止。</li>
       <li><strong>独自在家的远程工作者</strong>——辅助安排作息，识别漏餐或睡眠紊乱。</li>
@@ -419,6 +420,7 @@
 
 </main>
 </div>
+-->
 
 <footer>
   <div class="container">
@@ -428,19 +430,23 @@
 
 <script>
   function setLang(lang) {
-    document.getElementById('lang-en').classList.toggle('active', lang === 'en');
-    document.getElementById('lang-cn').classList.toggle('active', lang === 'cn');
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    document.getElementById('btn-cn').classList.toggle('active', lang === 'cn');
+    const enEl = document.getElementById('lang-en');
+    const cnEl = document.getElementById('lang-cn');
+    const btnEn = document.getElementById('btn-en');
+    const btnCn = document.getElementById('btn-cn');
+    if (enEl) enEl.classList.toggle('active', lang === 'en');
+    if (cnEl) cnEl.classList.toggle('active', lang === 'cn');
+    if (btnEn) btnEn.classList.toggle('active', lang === 'en');
+    if (btnCn) btnCn.classList.toggle('active', lang === 'cn');
     document.documentElement.lang = lang === 'cn' ? 'zh-CN' : 'en';
     try { localStorage.setItem('hestia-lang', lang); } catch(e) {}
   }
 
-  // Default to Chinese; restore saved preference if any
+  // Default to English; restore saved preference if any
   (function() {
     let saved = null;
     try { saved = localStorage.getItem('hestia-lang'); } catch(e) {}
-    if (saved) setLang(saved);
+    if (saved) setLang(saved); else setLang('en');
     document.getElementById('year').textContent = new Date().getFullYear();
   })();
 </script>
