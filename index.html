@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -264,29 +264,29 @@
   <div class="container header-row">
     <div class="logo">Hest<span>ia</span></div>
     <div class="lang-toggle">
-      <button id="btn-en" onclick="setLang('en')">English</button>
-      <button id="btn-cn" class="active" onclick="setLang('cn')">中文</button>
+      <button id="btn-en" class="active" onclick="setLang('en')">English</button>
+      <button id="btn-cn" onclick="setLang('cn')">中文</button>
     </div>
   </div>
 </header>
 
 <!-- ================= ENGLISH ================= -->
-<div id="lang-en" class="lang-content">
+<div id="lang-en" class="lang-content active">
 <main class="container">
 
   <section class="hero" style="border-top: none;">
     <span class="tag">Volunteer Recruitment · UT Dallas</span>
     <h1>Volunteer recruitment for a home activity sensing study.</h1>
-    <p class="subtitle">We are looking for volunteers to host a small set of sensors at home for 4–12 days — 3 microphones, a living-room camera, a WiFi sensor, and a study phone. The study investigates whether daily routines can be recognized from these signals. The camera never stores video or images — on-device it outputs only a simple activity label (sitting, standing, walking, lying, or absent). No speech is transcribed.</p>
+    <p class="subtitle">We are looking for volunteers to host a small set of sensors at home for 4–12 days — 3 microphones, a living-room camera, a WiFi sensor, and a study phone. The study i[...]</p>
     <a href="#signup" class="btn">I'm interested</a>
     <a href="#details" class="btn btn-secondary">Learn more</a>
   </section>
 
   <section id="about">
     <h2>About the study</h2>
-    <p>Hestia is a research project at <strong>The University of Texas at Dallas</strong> studying whether everyday household signals — ambient sounds (water running, kitchen activity, footsteps, doors), body movement, wireless motion patterns, and phone motion — can be used to recognize daily routines. The intended applications include:</p>
+    <p>Hestia is a research project at <strong>The University of Texas at Dallas</strong> studying whether everyday household signals — ambient sounds (water running, kitchen activity, footstep[...]</p>
     <ul class="clean">
-      <li><strong>Older adults living independently</strong> — recognizing daily routines and flagging deviations from the usual pattern, such as missed meals, disrupted sleep, or unusual late-night activity.</li>
+      <li><strong>Older adults living independently</strong> — recognizing daily routines and flagging deviations from the usual pattern, such as missed meals, disrupted sleep, or unusual late-[...]</li>
       <li><strong>Remote workers living alone</strong> — structuring the day, identifying skipped meals or irregular sleep.</li>
       <li><strong>Self-reflection</strong> — a private summary of how the day is actually spent.</li>
     </ul>
@@ -310,8 +310,10 @@
     <div class="card privacy-card">
       <p>Here is exactly what each sensor collects:</p>
       <ul class="clean" style="margin-top:8px;">
-        <li><strong>Audio</strong> — the microphones record ambient sound. For analysis, the researcher (Xiao Yan) may listen to short segments to verify sound types. Speech content is not transcribed or extracted.</li>
-        <li><strong>Camera</strong> — placed in the living room only (never in bedrooms or bathrooms). Video is processed on-device into a simple activity label (sitting, standing, walking, lying, or absent); <strong>raw video frames and the intermediate pose data are discarded immediately</strong> — only the text label is kept. It is never used for identification or facial recognition.</li>
+        <li><strong>Audio</strong> — the microphones record ambient sound. For analysis, the researcher (Xiao Yan) may listen to short segments to verify sound types. Speech content is not tran[...]
+        </li>
+        <li><strong>Camera</strong> — placed in the living room only (never in bedrooms or bathrooms). Video is processed on-device into a simple activity label (sitting, standing, walking, lyi[...]
+        </li>
         <li><strong>WiFi sensor</strong> — only wireless signal/motion patterns are recorded. It does not capture your internet traffic or any content.</li>
         <li><strong>Study phone</strong> — only motion sensors (accelerometer / gyroscope) are recorded. <strong>No calls, messages, apps, or location</strong> are collected.</li>
       </ul>
@@ -337,7 +339,8 @@
       <tr><td>Devices in home</td><td>3 microphone sensors (bedroom, bathroom, kitchen) + 1 camera and 1 WiFi sensor (living room)</td></tr>
       <tr><td>Carried during the day</td><td>1 study phone (Pixel 8), for its motion sensors</td></tr>
       <tr><td>Daily effort</td><td>~5 minutes (activity diary)</td></tr>
-      <tr><td>What is NOT collected</td><td>No raw video or images (camera keeps only coarse activity labels), no speech transcripts, no phone content (calls / messages / apps / location), no cloud uploads</td></tr>
+      <tr><td>What is NOT collected</td><td>No raw video or images (camera keeps only coarse activity labels), no speech transcripts, no phone content (calls / messages / apps / location), no clo[...]
+      </tr>
       <tr><td>Who sees the data</td><td>Only me (Xiao Yan)</td></tr>
       <tr><td>Your rights</td><td>Withdraw or request full deletion at any time</td></tr>
     </table>
@@ -354,21 +357,23 @@
 </main>
 </div>
 
-<!-- ================= 中文 ================= -->
-<div id="lang-cn" class="lang-content active">
+<!--
+================= 中文 (commented out) =================
+
+<div id="lang-cn" class="lang-content">
 <main class="container">
 
   <section class="hero" style="border-top: none;">
     <span class="tag">志愿者招募 · 德州大学达拉斯分校</span>
     <h1>家庭活动感知实验志愿者招募。</h1>
-    <p class="subtitle">我们正在招募志愿者，在家中放置一小组传感器，持续 4–12 天——3 个麦克风、1 个客厅摄像头、1 个 WiFi 传感器，以及一部实验手机。本研究探讨能否通过这些信号识别日常作息。摄像头不会保存任何视频或图像，仅在设备本地输出简单的活动状态标签（坐、站、行走、躺、不在）。不转录任何语音内容。</p>
+    <p class="subtitle">我们正在招募志愿者，在家中放置一小组传感器，持续 4–12 天——3 个麦克风、1 个客厅摄像头、1 个 WiFi 传感器，以及一部实验�[...]</p>
     <a href="#signup-cn" class="btn">我有兴趣参与</a>
     <a href="#details-cn" class="btn btn-secondary">了解更多</a>
   </section>
 
   <section id="about-cn">
     <h2>关于本研究</h2>
-    <p>Hestia 是 <strong>德州大学达拉斯分校 (UT Dallas)</strong> 的一项研究项目，研究能否通过家中的日常信号——环境声音（水流声、厨房活动、脚步声、开关门声等）、身体动作、无线信号的运动变化，以及手机的运动信息——识别日常作息。研究的应用方向包括：</p>
+    <p>Hestia 是 <strong>德州大学达拉斯分校 (UT Dallas)</strong> 的一项研究项目，研究能否通过家中的日常信号——环境声音（水流声、厨房活动、脚步声[...]</p>
     <ul class="clean">
       <li><strong>独居老人</strong>——识别日常作息，并发现偏离常态的情况，例如漏餐、睡眠紊乱或异常的深夜活动。</li>
       <li><strong>独自在家的远程工作者</strong>——辅助安排作息，识别漏餐或睡眠紊乱。</li>
@@ -394,8 +399,8 @@
     <div class="card privacy-card">
       <p>以下是每种传感器具体采集的内容：</p>
       <ul class="clean" style="margin-top:8px;">
-        <li><strong>音频</strong>——麦克风录制环境声音。为完成分析，研究者（Xiao Yan）可能会听取部分片段以确认声音类型。不会对语音内容进行转录或提取。</li>
-        <li><strong>摄像头</strong>——仅放置在客厅（绝不放在卧室或卫生间）。画面在设备本地处理为简单的活动状态标签（坐、站、行走、躺、不在）；<strong>原始视频画面及中间的姿态关键点会被立即丢弃</strong>，仅保留文字标签。绝不用于身份识别或人脸识别。</li>
+        <li><strong>音频</strong>——麦克风录制环境声音。为完成分析，研究者（Xiao Yan）可能会听取部分片段以确认声音类型。不会对语音内容进行转��[...]</li>
+        <li><strong>摄像头</strong>——仅放置在客厅（绝不放在卧室或卫生间）。画面在设备本地处理为简单的活动状态标签（坐、站、行走、躺、不在�[...]</li>
         <li><strong>WiFi 传感器</strong>——只记录无线信号的运动变化模式，不会获取你的网络流量或任何内容。</li>
         <li><strong>实验手机</strong>——只记录运动传感器（加速度计 / 陀螺仪）数据，<strong>不采集通话、短信、应用或位置</strong>。</li>
       </ul>
@@ -421,7 +426,7 @@
       <tr><td>家中设备</td><td>3 个麦克风传感器（卧室、卫生间、厨房）+ 1 个摄像头和 1 个 WiFi 传感器（客厅）</td></tr>
       <tr><td>白天随身携带</td><td>1 部实验手机（Pixel 8），用于采集运动传感器数据</td></tr>
       <tr><td>每日投入</td><td>约 5 分钟（活动日志）</td></tr>
-      <tr><td>不会采集的内容</td><td>不保存原始视频或图像（摄像头仅保留粗粒度活动标签）、不转录语音、不采集手机内容（通话 / 短信 / 应用 / 位置）、不上传云端</td></tr>
+      <tr><td>不会采集的内容</td><td>不保存原始视频或图像（摄像头仅保留粗粒度活动标签）、不转录语音、不采集手机内容（通话 / 短信 / 应用 / 位�[...]</td></tr>
       <tr><td>谁能看到数据</td><td>仅限我本人（Xiao Yan）</td></tr>
       <tr><td>你的权利</td><td>随时退出或要求彻底删除数据</td></tr>
     </table>
@@ -437,6 +442,7 @@
 
 </main>
 </div>
+-->
 
 <footer>
   <div class="container">
@@ -446,20 +452,26 @@
 
 <script>
   function setLang(lang) {
-    document.getElementById('lang-en').classList.toggle('active', lang === 'en');
-    document.getElementById('lang-cn').classList.toggle('active', lang === 'cn');
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    document.getElementById('btn-cn').classList.toggle('active', lang === 'cn');
+    var enElem = document.getElementById('lang-en');
+    var cnElem = document.getElementById('lang-cn');
+    var btnEn = document.getElementById('btn-en');
+    var btnCn = document.getElementById('btn-cn');
+    if (enElem) enElem.classList.toggle('active', lang === 'en');
+    if (cnElem) cnElem.classList.toggle('active', lang === 'cn');
+    if (btnEn) btnEn.classList.toggle('active', lang === 'en');
+    if (btnCn) btnCn.classList.toggle('active', lang === 'cn');
     document.documentElement.lang = lang === 'cn' ? 'zh-CN' : 'en';
     try { localStorage.setItem('hestia-lang', lang); } catch(e) {}
   }
 
-  // Default to Chinese; restore saved preference if any
+  // Default to English; restore saved preference if any
   (function() {
     let saved = null;
     try { saved = localStorage.getItem('hestia-lang'); } catch(e) {}
     if (saved) setLang(saved);
-    document.getElementById('year').textContent = new Date().getFullYear();
+    else setLang('en');
+    var yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
   })();
 </script>
 
